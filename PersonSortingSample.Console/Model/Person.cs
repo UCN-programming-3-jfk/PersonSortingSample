@@ -18,6 +18,7 @@ public class Person : IComparable<Person>
     public int CompareTo(Person? other)
     {
         if (other is null) return 1;
+        //use culture-independent comparison:
         return StringComparer.Ordinal.Compare(Name, other.Name);
     }
 
