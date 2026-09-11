@@ -17,18 +17,19 @@ internal class Program
     {
         var people = new List<Person>(SamplePeople);
 
-        PrintList("Original:", people);
+        PrintListWithTitle("Original:", people);
 
         people.Sort(); // sort by Name via IComparable<Person>
-        PrintList("Sorted by Name:", people);
+        PrintListWithTitle("Sorted by Name:", people);
 
         people.Sort(new EmailComparer());
-        PrintList("Sorted by Email:", people);
+        PrintListWithTitle("Sorted by Email:", people);
 
         people.Sort(new AgeComparer());
-        PrintList("Sorted by Age:", people);
+        PrintListWithTitle("Sorted by Age:", people);
     }
-    static void PrintList(string title, IEnumerable<Person> list)
+
+    static void PrintListWithTitle(string title, IEnumerable<Person> list)
     {
         System.Console.WriteLine(title);
         foreach (var person in list)
